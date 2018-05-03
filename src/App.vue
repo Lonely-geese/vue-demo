@@ -1,23 +1,38 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <loading v-show="loading"></loading>
+    <router-view></router-view>
+    <NavBottomView v-show="shownav"></NavBottomView>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import NavBottomView from './components/NavBottom.vue';
+  import {mapGetters,mapActions} from 'vuex';
+  export default {
+    name: 'app',
+    computed:mapGetters(['loading','shownav']),
+    //监听路由的变化
+    watch:{
+      $route(to,from){
+        if(to.path.indexOf('detail')!=-1){
+          this.$store.dispatch('hideNav');
+          console.log(to.path.indexOf('detail'),"-----");
+        }else{
+          this.$store.dispatch('showNav');
+          console.log(to.path.indexOf('detail'),"==========");
+        }
+        if(to.path == '/cart' || to.path == '/search' || to.path == '/login' || to.path == '/register'){
+          this.$store.dispatch('hideNav');
+        }
+      }
+    },
+    components:{
+      NavBottomView
+    }
+  }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import './assets/css/index.css';
 </style>
