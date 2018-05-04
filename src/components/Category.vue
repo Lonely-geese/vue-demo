@@ -1,13 +1,25 @@
 <template>
-
+  <div id="category">
+    <CategoryHeadView></CategoryHeadView>
+    <CategoryMainView></CategoryMainView>
+  </div>
 </template>
-
 <script>
-    export default {
-        name: "Category"
+  import {myMoveScroll} from '../assets/js/category.js'
+  import CategoryHeadView from './CategoryHead.vue';
+  import CategoryMainView from './CategoryMain.vue';
+  export default{
+    components:{
+      CategoryHeadView,
+      CategoryMainView
+    },
+    mounted(){
+      myMoveScroll();
     }
+
+  }
 </script>
 
-<style scoped>
-
+<style>
+  @import '../assets/css/category.css';
 </style>

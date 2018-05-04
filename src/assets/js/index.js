@@ -11,6 +11,8 @@ function bindEvent() {
     var banner = $id("my_banner");
     /*高度*/
     var height = banner.offsetHeight;
+
+
     window.onscroll = function() {
         var top = document.body.scrollTop;
         /*当滚动高度大于banner的高度时候颜色不变*/

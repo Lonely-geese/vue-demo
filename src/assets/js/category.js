@@ -3,7 +3,7 @@
  */
 function myMoveScroll() {
     var childbox = document.getElementsByClassName("childbox")[0];
-    var lis = childbox.children;
+    var lis = childbox.children;  //li数组
     var parentBox = document.getElementsByClassName("category_left")[0];
     var height = parentBox.offsetHeight;
     var topheight = document.getElementsByClassName("top_bar")[0].offsetHeight;

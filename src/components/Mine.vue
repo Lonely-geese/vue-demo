@@ -1,13 +1,19 @@
 <template>
-
+  <div class="user_i">
+    <MineHeaderView></MineHeaderView>
+    <MineMainView></MineMainView>
+  </div>
 </template>
-
 <script>
-    export default {
-        name: "Mine"
+  import MineHeaderView from './MineHeader.vue';
+  import MineMainView from './MineMain.vue';
+  export default{
+    components:{
+      MineMainView,
+      MineHeaderView
     }
+  }
 </script>
-
-<style scoped>
-
+<style>
+  @import '../assets/css/mine.css';
 </style>
